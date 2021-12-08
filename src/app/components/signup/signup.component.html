@@ -1,0 +1,52 @@
+
+
+<div class="registeration py-5">
+    <div class="container mt-5">
+        <div class="header py-4">
+            <h2 class="fw-bolder text-center">Create your account Now!</h2>
+        </div>
+        <form [formGroup]="signupForm" (ngSubmit)="submitSignupForm(signupForm)">
+            <div class="formControl">
+                <label for="first_name">First Name:</label>
+                <input formControlName="first_name" class="form-control" type="text">
+                <div class="alerts alert alert-danger mt-2 py-1" *ngIf="signupForm.get('first_name')?.errors != null && signupForm.get('first_name')?.touched">
+                    <p class="mb-0" *ngIf="signupForm.get('first_name')?.errors?.['required']">FirstName is required</p>
+                    <p  class="mb-0" *ngIf="signupForm.get('first_name')?.errors?.['minlength']">min. length: 3 characters</p>
+                    <p  class="mb-0" *ngIf="signupForm.get('first_name')?.errors?.['maxlength']">max. length: 15 characters</p>
+                </div>
+            </div>
+            <div class="formControl">
+                <label for="last_name">Last Name:</label>
+                <input formControlName="last_name" class="form-control" type="text">
+                <div class="alerts alert alert-danger mt-2 py-1" *ngIf="signupForm.get('last_name')?.errors != null && signupForm.get('last_name')?.touched">
+                    <p class="mb-0" *ngIf="signupForm.get('last_name')?.errors?.['required']">LastName is required</p>
+                    <p class="mb-0" *ngIf="signupForm.get('last_name')?.errors?.['minlength']">min. length: 3 characters</p>
+                    <p class="mb-0" *ngIf="signupForm.get('last_name')?.errors?.['maxlength']">max. length: 15 characters</p>
+                </div>
+            </div>
+            <div class="formControl">
+                <label for="email">Email:</label>
+                <input formControlName="email" class="form-control" type="email">
+                <div class="alerts alert alert-danger mt-2 py-1" *ngIf="signupForm.get('email')?.errors != null && signupForm.get('email')?.touched">
+                    <p class="mb-0" *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</p>
+                    <p class="mb-0" *ngIf="signupForm.get('email')?.errors?.['email']">Email is invalid [ex: a@b.c]</p>
+                </div>
+            </div>
+            <div class="formControl">
+                <label for="password">Password:</label>
+                <input formControlName="password" class="form-control" type="password">
+                <div class="alerts alert alert-danger mt-2 py-1" *ngIf="signupForm.get('password')?.errors != null && signupForm.get('password')?.touched">
+                    <p  class="mb-0" *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</p>
+                    <p  class="mb-0" *ngIf="signupForm.get('password')?.errors?.['pattern']">Invalid Password [min: 6 characters]</p>
+                </div>
+            </div>
+            <div class="submission">
+                <button [disabled]="signupForm.invalid" type="submit" class="btn bg-primary text-white mt-3">Sign-up</button>
+                <div class="pt-2">
+                    <span class="">Already have an account ?! .. <a routerLink="/login">Login</a> now</span>            
+                </div>
+            </div>
+        </form>
+        <div class="alert errorAlert alert-danger mt-3" *ngIf="error">{{error}}</div>
+    </div>
+</div>

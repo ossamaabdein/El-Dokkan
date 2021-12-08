@@ -1,0 +1,29 @@
+
+.category {
+    width: fit-content;
+    padding: 0 3px;
+    border-radius: 3px;
+    background: rgb(224, 196, 196);
+    
+}
+
+.productImg {
+    text-align: center;
+    img {
+        width: 90%;
+    }
+}
+
+
+@media screen and(max-width: 600px) {
+    .productImg {
+        margin-bottom: 10px;
+        img {
+            width: 60%;
+        }
+    }
+
+    .productPrice {
+        margin-top: 8px;
+    }
+}

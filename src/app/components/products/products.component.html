@@ -1,0 +1,47 @@
+<div class="products mt-5">
+    <div class="categories pt-5">
+        <div class="container">
+            <div class="category">
+                <a (click)="allProducts()">
+                    <img src="../../../assets/images/all-products.png" alt="allProducts_img">
+                    <h6>All Products</h6>
+                </a>
+            </div>
+            <div class="category">
+                <a (click)="filterProducts(keywords[3])">
+                    <img src="../../../assets/images/laptop.png" alt="electronics_img">
+                    <h6>Electronics</h6>
+                </a>
+            </div>
+            <div class="category">
+                <a (click)="filterProducts(keywords[1])">
+                    <img src="../../../assets/images/clothes-hanger.png" alt="fashion_img">
+                    <h6>Fashion</h6>
+                </a>
+            </div>
+            <div class="category">
+                <a (click)="filterProducts(keywords[0])">
+                    <img src="../../../assets/images/jewelry.png" alt="jewelry_img">
+                    <h6>Jewelry</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="productsList mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="product col-lg-3 col-md-4 col-sm-6 py-2" *ngFor="let product of products">
+                    <div class="card p-2">
+                        <a class="cardInfo d-flex flex-column" [routerLink]="['/details', product.id]">
+                            <img [src]="product.image" alt="product_img">
+                            <h5 class="productTitle" style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis; ">{{product.title}}</h5>
+                            <p class="productDetails" style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300ch;">{{product.description}}</p>
+                            <p><strong>Price: </strong>${{product.price}}</p>
+                        </a>
+                        <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+</div>

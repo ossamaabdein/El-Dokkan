@@ -1,0 +1,145 @@
+
+.navbar {
+    .navbar-brand {
+        font-weight: 600;
+    }
+    a {
+        color: #fff;
+        margin-right: 15px;
+        .siteLogo {
+            width: 35px;
+            margin-right: 5px;
+        }
+    }
+
+    .navbar-toggler {
+        color: #fff;
+    }
+}
+
+.inputField {
+    position: relative;
+    width: 30%;
+    input {
+        width: 100%;
+    }
+    .searchLabel {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+}
+
+.cartBtn {
+    position: relative;
+
+    .badge {
+        font-size: 10px;
+        position: absolute;
+        top: -2px;
+        right: -2px;
+    }
+}
+
+
+
+// mobile search
+
+/* Styling the search box where the 
+            input would be given */
+
+            .navbar .searchbar {
+                position: relative;
+                display: none;
+            }
+
+            .navbar .searchbar input[type="text"] {
+                border: 0;
+                padding: 0;
+                width: 0px;
+                height: 35px;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+      
+            /* Styling the search bar icon */
+
+            .navbar .searchbar .icon {
+                display: flex;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 35px;
+                height: 100%;
+                background: none;
+                border-radius: 3px;
+                color: #fff;
+                transition: all 0.5s 0.3s ease;
+            }
+              
+            .navbar .searchbar .icon i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                cursor: pointer;
+            }
+              
+            .navbar .searchbar .icon.active {
+                background: #757ce7;
+                transition: all 0.3s ease;
+            }
+              
+            .navbar .searchbar input[type="text"].active {
+                width: 185px;
+                padding: 0 10px;
+                transition: all 0.5s 0.2s ease;
+            }
+
+            #mobileCart {
+                display: none;
+            }
+
+@media screen and (max-width: 768px) {
+    .navbar .inputField {
+        width: 40%;
+    }
+
+}
+     
+
+@media screen and (max-width: 575px) {
+
+    .navbar-toggler {
+        text-align: center;
+        padding: 4px 8px;
+        width:36px;
+        .navbar-toggler-icon {
+            width: 20px;
+        }
+    }
+    .navbar {
+        .navbar-brand {
+            margin-right: 8px;
+            .siteName {
+                display: none;
+            }
+        }
+        .searchbar {
+            display: block;
+        }
+    }
+
+    .navbar .inputField {
+        display: none;
+    }
+
+    #mobileCart {
+        display: block;
+    }
+
+    .cartBtn {
+        display: none;
+    }
+}

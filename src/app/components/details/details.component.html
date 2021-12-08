@@ -1,0 +1,20 @@
+<div class="details my-5">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="productImg col-md-3 col-sm-4">
+                <img [src]="productDetails.image" alt="">
+            </div>
+            <div class="productInfo col-md-9 col-sm-8 d-flex flex-column">
+                <h5>{{productDetails.title}}</h5>
+                <span class="category my-2">{{productDetails.category}}</span>
+                <p class="productDesc">{{productDetails.description}}</p>
+                <span><strong>Rating:</strong> {{productDetails.rating.rate}} <span><i class="fas fa-star text-warning"></i></span></span>
+                <span class="productPrice"><strong>Price:</strong> $ {{productDetails.price}}</span>
+                <div class="optionBtns mt-3">
+                    <button [disabled]="added" [style.innerText]="added ? 'Added to cart' : 'Add to cart'" class="btn addBtn btn-primary me-3" id="addBtn" (click)="addToCart(productDetails)"><i class="fas fa-cart-plus"></i> <span> Add to cart</span></button>
+                    <button class="btn btn-success" routerLink="/products" >View more products</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<header>
+<nav class="navbar fixed-top navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="products">
+        <img class="siteLogo" src="../../../assets/images/tab-icon.png" alt="website_logo">
+        <span class="siteName">El-Dokkan</span>
+      </a>
+      
+      <div class="inputField">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <span class="glyphicon glyphicon-search"></span>
+      </div>
+
+       <!-- Mobile search bars -->
+       <div class="searchbar mobileSearch">
+          <input id="mobileInput" type="text" placeholder="search">
+          <div class="icon" id="icon">
+              <i class="fas fa-search" (click)="test()"></i>
+          </div>
+      </div>      
+
+      <!-- Mob Cart -->
+      <a class="cartBtn btn btn-primary" id="mobileCart" routerLink="cart">
+        <i class="fas fa-cart-plus"></i>
+        <span class="badge bg-danger">{{itemsNo}}</span>
+      </a>
+
+      
+      <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">  
+        <div class="ms-auto">
+            <ul class="navbar-nav">
+                <li class="nav-item active" *ngIf="!isLogin">
+                <a class="nav-link" aria-current="page" routerLink="/login">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLogin">
+                <a class="nav-link" routerLink="signup">Signup</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                  <a class="nav-link" (click)="logout()" routerLink="">Logout</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+
+      <a class="cartBtn  btn btn-primary" routerLink="cart">
+        <i class="fas fa-cart-plus"></i>
+        <span class="badge bg-danger">{{itemsNo}}</span>
+      </a>
+
+    </div>
+  </nav>
+</header>
+
+

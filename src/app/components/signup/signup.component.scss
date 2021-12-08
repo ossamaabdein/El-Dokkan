@@ -1,0 +1,31 @@
+
+
+.registeration {
+    font-family: 'Roboto Slab', serif;
+    min-height: 85vh;
+}
+
+.header {
+    h2 {
+        .brand {
+            color: rgb(37, 97, 202);
+        }
+        .and {
+            font-size: 25px;
+        }
+    }
+}
+
+form, .errorAlert {
+    width: 50%;
+    margin: auto;
+}
+
+@media (max-width: 765px) {
+    form, .errorAlert {
+        width: 90%;
+    }
+    .submission {
+        text-align: center;
+    }
+}

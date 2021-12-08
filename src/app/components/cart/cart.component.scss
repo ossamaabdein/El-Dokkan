@@ -1,0 +1,60 @@
+
+img.emptyCart {
+    width: 100px;
+}
+
+.emptyCart {
+    width: 65%;
+    margin: auto;
+    p {
+        font-size: 15px;
+    }
+}
+
+.cart {
+    width: 50%;
+}
+
+.cartMobile {
+    img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .totalCost {
+        border-radius: 3px;
+        border: solid 1px rgb(235, 231, 231);
+        background-color: rgb(248, 247, 229);
+    }
+}
+
+
+@media screen and(max-width: 1000px) {
+    .cart {
+        width: 70%;
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .cart {
+        width: 90%;
+    }
+}
+
+@media screen and(max-width: 600px) {
+    .emptyCart {
+        width: 90%;
+    }
+    .cart {
+        width: 100%;
+
+        .container {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .cartMobile {
+        width: 100%;
+    }
+}

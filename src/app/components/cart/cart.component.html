@@ -1,0 +1,53 @@
+<div class="emptyCart my-5" *ngIf="cartItems.length == 0">
+    <div class="container pt-5">
+        <div class="card text-center">
+            <div class="card-header">
+               <h5>My Cart</h5>
+            </div>
+            <div class="card-body">
+                <img class="emptyCart" src="../../../assets/images/shopping-cart.png" alt="">
+              <h5 class="card-title">Your cart is empty!</h5>
+              <p class="card-text">Add items to it now</p>
+              <a class="btn btn-primary" routerLink="/products">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="cart my-5 mx-auto" *ngIf="cartItems.length != 0">
+    <div class="container pt-5">
+        <div class="pb-3 text-center">
+            <h2>My Cart</h2>
+        </div>
+
+        <div class="cartMobile">
+            <div class="card mb-2" *ngFor="let item of cartItems; let i = index">
+                <div class="card-body row me-0">
+                    <div class="col-3">
+                        <img [src]="item.image" alt="item_img">
+                    </div>
+                    <div class="card-info col-9">
+                        <h6 class="card-title">{{item.title}}</h6>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <span><strong>Price: </strong>${{item.price}}</span>
+                    <button class="btn btn-danger btn-sm" (click)="removeItem(item)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="totalCost card-footer my-2 d-flex justify-content-between">
+                <span><strong>Total: </strong></span>
+                <span><strong>${{total}}</strong></span>
+            </div>
+        </div>
+
+        <div class="advancedOptions d-flex justify-content-between"> 
+            <button class="btn btn-primary btn-sm" routerLink="/products">Shop More</button>
+            <button class="btn btn-success btn-sm">Checkout</button>
+            <button class="btn btn-danger btn-sm" (click)="emptyCart()">Empty Cart</button>
+        </div>
+    </div>
+</div>
