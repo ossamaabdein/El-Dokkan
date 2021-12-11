@@ -12,7 +12,12 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/details/details.component';
-
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FooterComponent } from './components/footer/footer.component';
+import { FilterPipe } from './filter.pipe' 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,13 +28,19 @@ import { DetailsComponent } from './components/details/details.component';
     NotfoundComponent,
     LoginComponent,
     SignupComponent,
-    DetailsComponent
+    DetailsComponent,
+    CheckoutComponent,
+    FooterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

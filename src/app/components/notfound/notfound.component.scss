@@ -1,0 +1,15 @@
+
+.notfound {
+    min-height: 85vh;
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .notfoundImg {
+            img {
+                width: 150px;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+
+// Footer Component Styling
+footer {
+    background-color: rgb(0, 0, 0);
+    color: #B1BBBB !important;
+    font-family: arial;
+    font-size: 15px;
+    .socialMedia a {
+        font-size: 22px;
+        color: #B1BBBB;
+        padding: 5px;
+        transition: all 0.25s ease-in-out;
+        &:hover {
+            color: #1B74E4;
+        }
+    }
+}
+

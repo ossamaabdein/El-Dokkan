@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
+
 
 @Component({
   selector: 'app-header',
@@ -20,7 +22,8 @@ export class HeaderComponent implements OnInit {
 
   isLogin = false;
   itemsNo = 0;
-  constructor(private _CartService: CartService, private _AuthService: AuthService) { }
+  searchInput: any;
+  constructor(private _CartService: CartService, private _AuthService: AuthService, private _ApiService: ApiService) { }
 
   ngOnInit(): void {
     this._AuthService.userData.subscribe(() => {
@@ -38,5 +41,9 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this._AuthService.logout()
+  }
+
+  search(x:any) {
+    this._CartService.search.next(x);
   }
 }

@@ -1,5 +1,12 @@
+
+<!-- Loading Screen Theme -->
+<div class="loadingScreen">
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate-pulse" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+</div>
+
+<!-- Products List -->
 <div class="products mt-5">
-    <div class="categories pt-5">
+    <div class="categories pt-5" *ngIf="products.length">
         <div class="container">
             <div class="category">
                 <a (click)="allProducts()">
@@ -14,7 +21,7 @@
                 </a>
             </div>
             <div class="category">
-                <a (click)="filterProducts(keywords[1])">
+                <a (click)="filterProducts(keywords[1], keywords[2])">
                     <img src="assets/images/clothes-hanger.png" alt="fashion_img">
                     <h6>Fashion</h6>
                 </a>
@@ -27,10 +34,10 @@
             </div>
         </div>
     </div>
-    <div class="productsList mt-5">
+    <div class="productsList my-5">
         <div class="container">
             <div class="row">
-                <div class="product col-lg-3 col-md-4 col-sm-6 py-2" *ngFor="let product of products">
+                <div class="product col-lg-3 col-md-4 col-sm-6 py-2" *ngFor="let product of products | filter:searchKey:'title' let i = index">
                     <div class="card p-2">
                         <a class="cardInfo d-flex flex-column" [routerLink]="['/details', product.id]">
                             <img [src]="product.image" alt="product_img">
@@ -38,7 +45,7 @@
                             <p class="productDetails" style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300ch;">{{product.description}}</p>
                             <p><strong>Price: </strong>${{product.price}}</p>
                         </a>
-                        <button class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
+                        <button class="btn addBtn bg-primary" (click)="addToCart(product)">Add to cart</button>
                     </div>
                 </div>              
             </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
-
 
 @Component({
   selector: 'app-details',
@@ -14,11 +14,13 @@ export class DetailsComponent implements OnInit {
   productDetails: any;
   added: boolean = false;
 
-  constructor(private _ApiService: ApiService, private _ActivatedRoute: ActivatedRoute, private _CartService: CartService) { }
+  constructor(private _ApiService: ApiService, private _ActivatedRoute: ActivatedRoute, private _CartService: CartService, private _NgxSpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this._NgxSpinnerService.show(); 
     this.id = this._ActivatedRoute.snapshot.params['id'];
     this._ApiService.getProductDetails(this.id).subscribe((response) => {
+      this._NgxSpinnerService.hide();
     this.productDetails = response;
     })
   }

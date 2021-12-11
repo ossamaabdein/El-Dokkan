@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   cartItemList: any = [];
   productList = new BehaviorSubject<any>([]);
+  search = new BehaviorSubject<string>('');
 
   constructor() {
     if(localStorage.getItem('cartData') != null) {
@@ -18,9 +19,6 @@ export class CartService {
     return this.productList.asObservable();
   }
 
-  saveCartItems() {
-
-  }
 
   addToCart(product: any) {
     this.cartItemList.push(product);

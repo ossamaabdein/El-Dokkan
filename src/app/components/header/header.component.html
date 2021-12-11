@@ -6,14 +6,14 @@
         <span class="siteName">El-Dokkan</span>
       </a>
       
-      <div class="inputField">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <div class="inputField" >
+        <input [(ngModel)]="searchInput" (keyup)="search(userInput.value)" #userInput class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <span class="glyphicon glyphicon-search"></span>
       </div>
 
        <!-- Mobile search bars -->
        <div class="searchbar mobileSearch">
-          <input id="mobileInput" type="text" placeholder="search">
+          <input [(ngModel)]="searchInput" (keyup)="search(userInput.value)" #userInput id="mobileInput" type="text" placeholder="search">
           <div class="icon" id="icon">
               <i class="fas fa-search" (click)="test()"></i>
           </div>
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <a class="cartBtn  btn btn-primary" routerLink="cart">
+      <a class="cartBtn btn" routerLink="cart">
         <i class="fas fa-cart-plus"></i>
         <span class="badge bg-danger">{{itemsNo}}</span>
       </a>

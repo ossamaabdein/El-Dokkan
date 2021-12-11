@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -9,9 +11,18 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   cartItems: any = [];
   total: number = 0;
-  constructor(private _CartService: CartService) { }
+  isLogin: boolean = false;
+  constructor(private _CartService: CartService, private _AuthService: AuthService) { }
 
   ngOnInit(): void {
+    this._AuthService.userData.subscribe(() => {
+      if(this._AuthService.userData.getValue() != null) {
+        this.isLogin = true;
+      } else {
+        this.isLogin = false;
+      }
+    })
+
     this._CartService.getProducts().subscribe(res => {
       this.cartItems = res;
       this.total = this._CartService.getTotalPrice();

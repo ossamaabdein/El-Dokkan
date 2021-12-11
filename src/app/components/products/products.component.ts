@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -11,33 +12,44 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductsComponent implements OnInit {
 
   products : any[] = [];
-  filteredProducts: any[] = [];
   keywords = ["jewelery", "women's clothing", "men's clothing", "electronics"];
   added: boolean = false;
-  constructor(private _ApiService: ApiService, private _CartService: CartService) { }
+  searchKey: string = "";
+
+  constructor(private _ApiService: ApiService, private _CartService: CartService, private _NgxSpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this._NgxSpinnerService.show(); 
     this._ApiService.getProducts().subscribe((response) => {
+      this._NgxSpinnerService.hide();
       this.products = response;
+    })
+
+    this._CartService.search.subscribe(val => {
+      this.searchKey = val;
     })
   }
 
-  filterProducts(keyword: string) {
+  // Better to use pipes, later.
+  filterProducts(par1:any, par2?:any) {
+    this._NgxSpinnerService.show();
     this._ApiService.getProducts().subscribe((response) => {
-      this.products = response.filter((el:any) => el.category === keyword);
-      this.filteredProducts =this.products;
+      this.products = response;
+      this._NgxSpinnerService.hide();
+      this.products = this.products.filter(el => (el.category == par1 || el.category == par2));
     })
   }
 
   allProducts() {
+    this._NgxSpinnerService.show();
     this._ApiService.getProducts().subscribe((response) => {
+      this._NgxSpinnerService.hide();
       this.products = response;
     })
   }
 
   addToCart(product:any){
     this._CartService.addToCart(product);
-    // this.added = true;
   }
 
 }
